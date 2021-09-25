@@ -84,3 +84,7 @@ Tier I usually consists of client-side applications such as websites or GUI prog
 The second tier is the middleware, which interprets these events and puts them in a form required by the DBMS. Finally, the application layer uses specific libraries and drivers based on the type of DBMS to interact with them. The DBMS receives queries from the second tier and performs the requested operations. These operations could include insertion, retrieval, deletion, or updating of data. After processing, the DBMS returns any requested data or error codes in the event of invalid queries.
 
 It is possible to host the application server as well as the DBMS on the same host. However, databases with large amounts of data supporting many users are typically hosted separately to improve performance and scalability.
+
+<p align="center">
+<a href="https://github.com/evildevill"><img title="Language" src="https://img.shields.io/badge/Next%20Types Of Databases-1f425f.svg?v=103"></a>
+</p>
