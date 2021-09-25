@@ -86,5 +86,5 @@ The second tier is the middleware, which interprets these events and puts them i
 It is possible to host the application server as well as the DBMS on the same host. However, databases with large amounts of data supporting many users are typically hosted separately to improve performance and scalability.
 
 <p align="center">
-<a href="https://github.com/evildevill"><img title="Language" src="https://img.shields.io/badge/Next%20Types Of Databases-1f425f.svg?v=103"></a>
+<a href="https://github.com/evildevill/sql_fundamentals/blob/main/others/types_of_db.md"><img title="Language" src="https://img.shields.io/badge/Next%20Types Of Databases-1f425f.svg?v=103"></a>
 </p>
