@@ -9,6 +9,6 @@ Tables in a relational database are associated with keys that provide a quick da
 However, when processing an integrated database, a concept is required to link one table to another using its key, called a relational database management system (RDBMS). Many companies that initially use different concepts are switching to the RDBMS concept because this concept is easy to learn, use and understand. Initially, this concept was used only by large companies. However, many types of databases now implement the RDBMS concept, such as Microsoft Access, MySQL, SQL Server, Oracle, PostgreSQL, and many others.
 
 For example, we can have a users table in a relational database containing columns like id, username, first_name, last_name, and others. The id can be used as the table key. Another table, posts, may contain posts made by all users, with columns like id, user_id, date, content, and so on.
-<p position="center">
+<p align="center">
 <img src="https://github.com/evildevill/sql_fundamentals/blob/main/img/web_apps_relational_db.jpg"/>
 </p>
