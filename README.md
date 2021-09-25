@@ -47,7 +47,7 @@ intuitive syntax supporting various operations.
 * ### Architecture
 The diagram below details a two-tiered architecture.
 
-<img width="50%" src=""/>
+<img src="https://github.com/evildevill/sql_fundamentals/blob/main/img/db_2.png"/>
 
 Tier I usually consists of client-side applications such as websites or GUI programs. These applications consist of high-level interactions such as user login or commenting. The data from these interactions is passed to Tier II through API calls or other requests.
 
