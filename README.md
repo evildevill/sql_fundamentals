@@ -99,3 +99,9 @@ For example, we can have a users table in a relational database containing colum
 <p align="center">
 <img src="https://github.com/evildevill/sql_fundamentals/blob/main/img/web_apps_relational_db.jpg"/>
 </p>
+
+We can link the id from the users table to the user_id in the posts table to retrieve the user details for each post without storing all user details with each post. A table can have more than one key, as another column can be used as a key to link with another table. So, for example, the id column can be used as a key to link the posts table to another table containing comments, each of which belongs to a particular post, and so on.
+
+```The relationship between tables within a database is called a Schema.```
+
+This way, by using relational databases, it becomes rapid and easy to retrieve all data about a particular element from all databases. So, for example, we can retrieve all details linked to a specific user from all tables with a single query. This makes relational databases very fast and reliable for big datasets with clear structure and design and efficient data management. The most common example of relational databases is MySQL, which we will be covering in this module.
