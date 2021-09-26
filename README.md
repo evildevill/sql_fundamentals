@@ -219,3 +219,122 @@ Once we log in to the database using the ```mysql``` utility, we can start using
 
 Query OK, 1 row affected (0.02 sec)
  ```
+
+MySQL expects command-line queries to be terminated with a semi-colon. The example above created a new database named `users`. We can view the list of databases with SHOW `DATABASES`, and we can switch to the `users` database with the `USE` statement:
+
+```
+mysql> SHOW DATABASES;
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| users              |
++--------------------+
+
+mysql> USE users;
+
+Database changed
+```
+
+```
+SQL statements aren't case sensitive, which means 'USE users;' and 'use users;' refer to the same command. However, the database name is case sensitive, so we cannot do 'USE USERS;' instead of 'USE users;'. So, it is a good practice to specify statements in uppercase to avoid confusion.
+```
+
+## Tables
+DBMS stores data in the form of tables. A table is made up of horizontal rows and vertical columns. The intersection of a row and a column is called a cell. Every table is created with a fixed set of columns, where each column is of a particular data type.
+
+A data type defines what kind of value is to be held by a column. Common examples are `numbers`, `strings`, `date`, `time`, and `binary data`. There could be data types specific to DBMS as well. A complete list of data types in MySQL can be found here. For example, let us create a table named `logins` to store user data, using the CREATE TABLE SQL query:
+
+* Code: `sql`
+```
+CREATE TABLE logins (
+    id INT,
+    username VARCHAR(100),
+    password VARCHAR(100),
+    date_of_joining DATETIME
+    );
+```
+
+As we can see, the `CREATE TABLE` query first specifies the table name, and then (within parentheses) we specify each column by its name and its data type, all being comma separated. After the name and type, we can specify specific properties, as will be discussed later.
+
+```
+mysql> CREATE TABLE logins (
+    ->     id INT,
+    ->     username VARCHAR(100),
+    ->     password VARCHAR(100),
+    ->     date_of_joining DATETIME
+    ->     );
+Query OK, 0 rows affected (0.03 sec)
+```
+
+The SQL queries above create a table named `logins` with four columns. The first column, `id` is an integer. The following two columns, `username` and `password` are set to strings of 100 characters each. Any input longer than this will result in an error. The `date_of_joining` column of type `DATETIME` stores the date when an entry was added.
+
+```
+mysql> SHOW TABLES;
+
++-----------------+
+| Tables_in_users |
++-----------------+
+| logins          |
++-----------------+
+1 row in set (0.00 sec)
+```
+
+A list of tables in the current database can be obtained using the `SHOW TABLES` statement. In addition, the DESCRIBE keyword is used to list the table structure with its fields and data types.
+
+```
+mysql> DESCRIBE logins;
+
++-----------------+--------------+
+| Field           | Type         |
++-----------------+--------------+
+| id              | int          |
+| username        | varchar(100) |
+| password        | varchar(100) |
+| date_of_joining | date         |
++-----------------+--------------+
+4 rows in set (0.00 sec)
+```
+
+## Table Properties
+Within the `CREATE TABLE` query, there are many properties that can be set for the table and each column. For example, we can set the `id` column to auto-increment using the `AUTO_INCREMENT` keyword, which automatically increments the id by one every time a new item is added to the table:
+
+* Code: `sql`
+```
+    id INT NOT NULL AUTO_INCREMENT,
+```
+
+The `NOT NULL` constraint ensures that a particular column is never left empty 'i.e., required field.' We can also use the `UNIQUE` constraint to ensures that the inserted item are always unique. For example, if we use it with the `username` column, we can ensure that no two users will have the same username:
+
+* Code: `sql`
+```
+    username VARCHAR(100) UNIQUE NOT NULL,
+```
+    
+Another important keyword is the `DEFAULT` keyword, which is used to specify the default value. For example, within the `date_of_joining` column, we can set the default value to `Now()`, which in `MySQL` returns the current date and time:
+
+* Code: `sql`
+```
+    PRIMARY KEY (id)
+```
+
+The final CREATE TABLE query will be as follows:
+
+* Code: `sql`
+```
+CREATE TABLE logins (
+    id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    date_of_joining DATETIME DEFAULT NOW(),
+    PRIMARY KEY (id)
+    );
+```
+
+```
+Note: Allow 10-15 seconds for the servers in the questions to start, to allow enough time for Apache/MySQL to initiate and run.
+```
