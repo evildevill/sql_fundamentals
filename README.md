@@ -114,3 +114,34 @@ A non-relational database (also called a ```NoSQL``` database) does not use tabl
 * `Document-Based`
 * `Wide-Column`
 * `Graph`
+Each of the above models has a different way of storing data. For example, the ```Key-Value``` model usually stores data in JSON or XML, and have a key for each pair, and stores all of its data as its value:
+<p align="center">
+<img src="https://github.com/evildevill/sql_fundamentals/blob/main/img/web_apps_non-relational_db.jpg"/>
+</p>
+
+Code: ```json```
+```
+{
+  "100001": {
+    "date": "01-01-2021",
+    "content": "Welcome to this web application."
+  },
+  "100002": {
+    "date": "02-01-2021",
+    "content": "This is the first post on this web app."
+  },
+  "100003": {
+    "date": "02-01-2021",
+    "content": "Reminder: Tomorrow is the ..."
+  }
+}
+```
+
+It looks similar to a dictionary item in languages like ```Python``` or ```PHP``` (i.e. ```{'key':'value'})```, where the ```key``` is usually a string, and the ```value``` can be a string, dictionary, or any class object.
+
+The most common example of a NoSQL database is ```MongoDB```.
+```
+Non-relational Databases have a different method for injection, known as NoSQL injections.
+SQL injections are completely different than NoSQL injections. NoSQL injections will be 
+covered in a later module.
+```
