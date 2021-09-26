@@ -145,3 +145,77 @@ Non-relational Databases have a different method for injection, known as NoSQL i
 SQL injections are completely different than NoSQL injections. NoSQL injections will be 
 covered in a later module.
 ```
+
+## Intro to MySQL
+
+This module introduces SQL injection through ```MySQL```, and it is crucial to learn more about ```MySQL``` and SQL to understand how SQL injections work and utilize them properly. Therefore, this section will cover some of MySQL/SQL's basics and syntax and examples used within ```MySQL/MariaDB databases```.
+
+## Structured Query Language (SQL)
+
+SQL syntax can differ from one RDBMS to another. However, they are all required to follow the ISO standard for Structured Query Language. We will be following the MySQL/MariaDB syntax for the examples shown. SQL can be used to perform the following actions:
+
+* `Retrieve data`
+* `Update data`
+* `Delete data`
+* `Create new tables and databases`
+* `Add / remove users`
+* `Assign permissions to these users`
+
+## Command Line
+
+The ```mysql``` utility is used to authenticate to and interact with a MySQL/MariaDB database. The ```-u``` flag is used to supply the username and the ```-p``` flag for the password. The ```-p``` flag should be passed empty, so we are prompted to enter the password and do not pass it directly on the command line since it could be stored in cleartext in the ```bash_history``` file.
+
+```
+root@kali$ mysql -u root -p
+
+Enter password: <password>
+...SNIP...
+
+mysql> 
+```
+
+Again, it is also possible the password directly into the command, though this should be avoided, as it could lead to the password being kept in logs and terminal history:
+
+```
+root@kali$ mysql -u root -p<password>
+
+...SNIP...
+
+mysql> 
+```
+```
+Tip: There shouldn't be any spaces between '-p' and the password.
+```
+
+The examples above log us in as the superuser, i.e.,"```root```" with the password "```password,```" to have privileges to execute all commands. Other DBMS users would have certain privileges to which statements they can execute. We can view which privileges we have using the SHOW GRANTS command be discussed later.
+
+When we do not specify a host, it will default to the ```localhost``` server. We can specify a remote host and port using the ```-h``` and ```-P``` flags.
+
+```
+root@kali$ mysql -u root -h docker.hackthebox.eu -P 3306 -p 
+
+Enter password: 
+...SNIP...
+
+mysql> 
+```
+
+```
+Note: The default MySQL/MariaDB port is (3306), but it can be configured to another port. It is specified using an 
+uppercase `P`, unlike the lowercase `p` used for passwords.
+```
+
+```
+Note: To follow along with the examples, try to use the 'mysql' tool on your PwnBox to log in to the DBMS found in the 
+question at the end of the section, using its IP and port. Use 'root' for the username and 'password' for the password.
+```
+
+## Creating a database
+
+Once we log in to the database using the ```mysql``` utility, we can start using SQL queries to interact with the DBMS. For example, a new database can be created within the MySQL DBMS using the CREATE ```DATABASE``` statement.
+
+ ```
+ mysql> CREATE DATABASE users;
+
+Query OK, 1 row affected (0.02 sec)
+ ```
