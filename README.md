@@ -1,4 +1,4 @@
-# SQL INJECTION FUNDAMENTALS 
+# SQL INJECTION FUNDAMENTALS 🖤✨
 
 ## Introduction
 
